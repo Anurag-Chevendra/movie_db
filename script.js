@@ -79,7 +79,7 @@ const getMovieDetails = async (API_URL) => {
 
 // Set up the movie request
 const setupWeatherRequest = (movieName) => {
-  const API_URL = `http://www.omdbapi.com/?i=tt3896198&apikey=60e1e8e7&t=${movieName}`;
+  const API_URL = `https://www.omdbapi.com/?i=tt3896198&apikey=60e1e8e7&t=${movieName}`;
   getMovieDetails(API_URL);
 }
 
