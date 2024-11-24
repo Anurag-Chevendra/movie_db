@@ -36,7 +36,7 @@
 <body>
     <div class="h1-title">
         <h1>Movie List</h1>    
-        <button onclick="sortTable()">Sort</button>
+        
         <form action="index.html">
             <input type="submit" value="movie db" />
         </form>
@@ -86,7 +86,9 @@ function sortTable(){
 
     
 </script>
+
       <script type="module">
+        
         
         window.onload = function() {
         if(!window.location.hash) {
@@ -136,8 +138,15 @@ const app = initializeApp(firebaseConfig);
                     content+='</tr>';
                 });
                 //location.reload();
+                
                 $('#ex-table').append(content);
+                
+                sortTable();
             });
+
+            
+            
+            
              
       </script>
       <nav>
