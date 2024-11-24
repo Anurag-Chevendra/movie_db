@@ -30,7 +30,7 @@ body {
 .search-section {
   display: flex;
   gap: 10px;
-  padding: 25px;
+  padding: 10px;
   align-items: center;
 }
 
@@ -68,6 +68,29 @@ body {
 }
 
 .search-section .search-input::placeholder {
+  text-transform: none;
+}
+
+.search-section .search-input-rating {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 6px;
+  text-transform: uppercase;
+  padding: 0 20px 0 50px;
+  border: 1px solid #beb0ff;
+  background: #fff;
+  transition: 0.1s ease;
+}
+
+.search-section .search-input-rating:focus {
+  border-color: #5f41e4;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.14);
+}
+
+.search-section .search-input-rating::placeholder {
   text-transform: none;
 }
 
