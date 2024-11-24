@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>movie list</title>
+    
+</head>
+<style>
+    .h1-title{
+        text-align: center;
+        color: #2c2;
+    }
+    .middle{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    body{
+        background: #222;
+    }
+    table, th, td {
+        
+      border:1px solid #2c2;
+      border-collapse: collapse;
+      color: #2c2;
+    }
+    #ex-table td{
+        text-align: center;
+        vertical-align: middle;
+    }
+    #ex-table th{
+        color: aliceblue;
+    }
+    </style>
+<body>
+    <div class="h1-title">
+        <h1>Movie List</h1>    
+        <button onclick="sortTable()">Sort</button>
+        <form action="index.html">
+            <input type="submit" value="movie db" />
+        </form>
+        
+    </div>
+</br>
+</br>
+</br>
+</br>
+      <table class = "middle" style="width:60%" id="ex-table">
+        <tr>
+          <th>MovieName</th>
+          <th>Director</th>
+          <th>Running</th>
+          <th>Rating</th>
+        </tr>
+      </table>
+      <script>
+
+function sortTable(){
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("ex-table");
+            
+            switching = true;
+            while (switching) {
+            
+                switching = false;
+                rows = table.rows;
+                /*Loop through all table rows (except the
+                first, which contains table headers):*/
+                for (i = 1; i < (rows.length - 1); i++) {
+                    //start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /*Get the two elements you want to compare,
+                    one from current row and one from the next:*/
+                    x = rows[i].getElementsByTagName("TD")[3];
+                    y = rows[i + 1].getElementsByTagName("TD")[3];
+                    //check if the two rows should switch place:
+                    
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                     //if so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                    }
+                }
+        if (shouldSwitch) {
+             /*If a switch has been marked, make the switch
+            and mark that a switch has been done:*/
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+        }
+        }
+
+    }
+</script>
+      <script type="module">
+        
+        window.onload = function() {
+        if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}
+        var script = document.createElement('script');
+script.src = 'https://code.jquery.com/jquery-3.6.3.min.js'; // Check https://jquery.com/ for the current version
+document.getElementsByTagName('head')[0].appendChild(script);
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyDqRsgbiUdtmvkA8l0xg1YHo234rZGjctY",
+  authDomain: "movie-database-80fc8.firebaseapp.com",
+  databaseURL: "https://movie-database-80fc8-default-rtdb.firebaseio.com",
+  projectId: "movie-database-80fc8",
+  storageBucket: "movie-database-80fc8.firebasestorage.app",
+  messagingSenderId: "398555772218",
+  appId: "1:398555772218:web:fae30f63ed1fdc0d628c03",
+  measurementId: "G-JX16E7W4BY"
+};
+var content ="";
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+
+// end firebase 
+
+            import {getDatabase, ref, onValue, get, set, child, update, remove}
+            from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js"
+            const db = getDatabase();
+            
+            const starcountref = ref(db, "movie/");
+            onValue(starcountref, (snapshot) => {
+                //const data = snapshot.val();
+                var content ="";
+                snapshot.forEach(function(data){
+                    var val = data.val();
+                    content+='<tr>';
+                    content+='<td>'+val.Title + '</td>';
+                    content+='<td>'+val.Director+'</td>';
+                    content+='<td>'+val.Runtime+'</td>';
+                    content+='<td>'+val.Rating+'</td>';
+                    content+='</tr>';
+                });
+                //location.reload();
+                $('#ex-table').append(content);
+            });
+             
+      </script>
+      <nav>
+       <ul>
+        
+      </ul>
+      </nav> 
+</body>
+</html>
