@@ -23,7 +23,7 @@ const db = getDatabase();
 
 
 const searchInput = document.querySelector(".search-input");
-const rating = document.querySelector(".rating");
+const rating = document.querySelector(".search-input-rating");
 
 const API_KEY = "60e1e8e7"; // API key
 
@@ -34,7 +34,7 @@ const API_KEY = "60e1e8e7"; // API key
 
 const currentWeatherDiv = document.querySelector(".current-weather");
 // Fetch and display weather details
-const getMovieDetails = async (API_URL) => {
+const getMovieDetails = async (API_URL, ratingValue) => {
   window.innerWidth <= 768 && searchInput.blur();
   document.body.classList.remove("show-no-results");
 
@@ -55,10 +55,11 @@ const getMovieDetails = async (API_URL) => {
     currentWeatherDiv.querySelector(".description").innerHTML = `${tp}`;
 
     console.log("before");
-    set(ref(db),{
+    set(ref(db, 'movie/' + movieName),{
       Title: mtitle,
       Runtime: mruntime,
       Director: mdirector,
+      Rating: parseInt(ratingValue)
       
   })
   .then(()=>{
@@ -72,28 +73,45 @@ const getMovieDetails = async (API_URL) => {
     const movieInfo = '{' + title + '},' + '{' +runtime +'},' + '{' + director+ '}';
     console.log(movieInfo);
   } catch (error) {
-    console.log("we in herere");
+    
     //document.body.classList.add("show-no-results");
   }
 }
 
 // Set up the movie request
-const setupWeatherRequest = (movieName) => {
+const setupWeatherRequest = (movieName, ratingValue) => {
   const API_URL = `https://www.omdbapi.com/?i=tt3896198&apikey=60e1e8e7&t=${movieName}`;
-  getMovieDetails(API_URL);
+  getMovieDetails(API_URL, ratingValue);
 }
 
 // Handle user input in the search box
+var check1 = false;
+var check2 = false;
+var movieName;
 searchInput.addEventListener("keyup", (e) => {
-  const movieName = searchInput.value.trim();
-  
+  movieName = searchInput.value.trim();
+
   
   if (e.key == "Enter" && movieName) {
-    setupWeatherRequest(movieName);
+    check1 = true;
+    console.log("check1");
   }
 });
 
 rating.addEventListener("keyup", (e) => {
-  const ratingvalue = rating.value.trim();
+  const ratingValue = rating.value.trim();
+
+  
+  if (e.key == "Enter" && ratingValue) {
+    console.log("check2");
+    check2 = true;
+
+    if( check1 && check2 ){
+      console.log("herer in check1 check2");
+      setupWeatherRequest(movieName, ratingValue);
+    }
+  }
 });
+
+
 
