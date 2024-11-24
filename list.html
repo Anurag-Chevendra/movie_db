@@ -55,42 +55,36 @@
         </tr>
       </table>
       <script>
-console.log("in sort");
+
 function sortTable(){
-            var table, rows, switching, i, x, y, shouldSwitch;
+    console.log("implement");
+            var table, rows, switching, i, x, y,j, shouldSwitch;
             table = document.getElementById("ex-table");
             
-            switching = true;
-            while (switching) {
             
-                switching = false;
                 rows = table.rows;
                 /*Loop through all table rows (except the
                 first, which contains table headers):*/
-                for (i = 1; i < (rows.length - 1); i++) {
-                    //start by saying there should be no switching:
-                    shouldSwitch = false;
-                    /*Get the two elements you want to compare,
-                    one from current row and one from the next:*/
-                    x = rows[i].getElementsByTagName("TD")[3];
-                    y = rows[i + 1].getElementsByTagName("TD")[3];
+                for (i = 1; i < (rows.length); i++) {
+                    for (j=1; j<rows.length-i; j++){
+                        x = Number(rows[j].getElementsByTagName("TD")[3].innerHTML);
+                        console.log(typeof(x));
+                        y = Number(rows[j+1].getElementsByTagName("TD")[3].innerHTML);
+                        console.log(y);
+                        if(x<y){
+                            rows[j].parentNode.insertBefore(rows[j+1],rows[j]);
+                            
+                        }
+                    }
+                    
                     //check if the two rows should switch place:
                     
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                     //if so, mark as a switch and break the loop:
-                    shouldSwitch = true;
-                    break;
-                    }
+                    
                 }
-        if (shouldSwitch) {
-             /*If a switch has been marked, make the switch
-            and mark that a switch has been done:*/
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-        }
+        
         }
 
-    }
+    
 </script>
       <script type="module">
         
@@ -122,11 +116,13 @@ const app = initializeApp(firebaseConfig);
 
 // end firebase 
 
-            import {getDatabase, ref, onValue, get, set, child, update, remove}
+            import {getDatabase, orderByValue, ref, onValue, get, set, child, update, remove}
             from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js"
             const db = getDatabase();
             
-            const starcountref = ref(db, "movie/");
+            var starcountref = ref(db, "movie/");
+
+            
             onValue(starcountref, (snapshot) => {
                 //const data = snapshot.val();
                 var content ="";
