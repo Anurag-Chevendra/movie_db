@@ -45,7 +45,9 @@ const getMovieDetails = async (API_URL, ratingValue) => {
     const mtitle = data.Title;
     const mruntime = data.Runtime;
     const mdirector = data.Director;
-    
+    const mrelease = data.Released;
+    const mimdb = data.imdbID;
+    console.log(data);
     //console.log(data)
     console.log(mtitle);
     console.log(mruntime);
@@ -59,6 +61,8 @@ const getMovieDetails = async (API_URL, ratingValue) => {
       Title: mtitle,
       Runtime: mruntime,
       Director: mdirector,
+      Released: mrelease,
+      IMDB : mimdb,
       Rating: parseInt(ratingValue)
       
   })
@@ -80,7 +84,18 @@ const getMovieDetails = async (API_URL, ratingValue) => {
 
 // Set up the movie request
 const setupWeatherRequest = (movieName, ratingValue) => {
-  const API_URL = `https://www.omdbapi.com/?i=tt3896198&apikey=60e1e8e7&t=${movieName}`;
+  const doubt = movieName[0]+movieName[1];
+  console.log(doubt);
+  var API_URL;
+  if(doubt == "tt"){
+    //
+     API_URL = `https://www.omdbapi.com/?apikey=60e1e8e7&i=${movieName}`;
+  }
+  else{
+   API_URL = `https://www.omdbapi.com/?apikey=60e1e8e7&t=${movieName}`;
+  }
+  //http://www.omdbapi.com/?i=tt6033368
+  console.log(API_URL);
   getMovieDetails(API_URL, ratingValue);
 }
 
