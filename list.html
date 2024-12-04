@@ -52,10 +52,12 @@
 </br>
       <table class = "middle" style="width:60%" id="ex-table">
         <tr>
+          <th>IMDB</th>
           <th>MovieName</th>
           <th>Director</th>
           <th>Running</th>
           <th>Rating</th>
+          <th>Released</th>
         </tr>
       </table>
       <script>
@@ -71,9 +73,11 @@ function sortTable(){
                 first, which contains table headers):*/
                 for (i = 1; i < (rows.length); i++) {
                     for (j=1; j<rows.length-i; j++){
-                        x = Number(rows[j].getElementsByTagName("TD")[3].innerHTML);
+                        x = Number(rows[j].getElementsByTagName("TD")[4].innerHTML);
+                    
                         console.log(typeof(x));
-                        y = Number(rows[j+1].getElementsByTagName("TD")[3].innerHTML);
+                        y = Number(rows[j+1].getElementsByTagName("TD")[4].innerHTML);
+                        
                         console.log(y);
                         if(x<y){
                             rows[j].parentNode.insertBefore(rows[j+1],rows[j]);
@@ -134,11 +138,15 @@ const app = initializeApp(firebaseConfig);
                 var content ="";
                 snapshot.forEach(function(data){
                     var val = data.val();
+                    var imdbLink = "https://www.imdb.com/title/" + val.IMDB;
+                    console.log(imdbLink);
                     content+='<tr>';
-                    content+='<td>'+val.Title + '</td>';
+                    content+='<td><a href="'+imdbLink+'">'+val.IMDB+'</a></td>';
+                    content+='<td>'+val.Title +'</td>';
                     content+='<td>'+val.Director+'</td>';
                     content+='<td>'+val.Runtime+'</td>';
                     content+='<td>'+val.Rating+'</td>';
+                    content+='<td>'+val.Released+'</td>';
                     content+='</tr>';
                 });
                 //location.reload();
