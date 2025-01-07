@@ -1,0 +1,5 @@
+08-01-2025 : added a new feature, watchlist. Wanted to implement this since a very long time. finally got to it. It's not yet complete to be honest
+             Features to be added: 1)to be able to delete from watchlist. even crazier would be if database detects there's a entry which is already 
+                                     present in the watchlist and deletes the entry from watchlist all by itself. 
+                                   2)Add a sign-in user interface. Not too crazy. People with 2 brain-cells should be able to crack it since I am     [Remove this from log once done]
+                                     planning to hard-code it. 
