@@ -15,12 +15,14 @@
   <div class="container">
     <!-- Search section -->
     <h1 style="text-align: center;
-        color: #2c2;"> Movie DataBase</h1>
+        color: #2c2;"> Movie_DB</h1>
+    
+    
     <div class="search-section">
       
       <div class="input-wrapper">
         <span class="material-symbols-rounded">search</span>
-        <input type="search" placeholder="Enter a movie name" class="search-input">
+        <input type="search" placeholder="Enter a movie name or IMDB token" class="search-input">
       </div>
       
     </div>
@@ -28,14 +30,23 @@
     <div class="search-section">
       <div class="input-wrapper">
         <span class="material-symbols-rounded">R</span>
-        <input type="search" placeholder="Enter rating" class="search-input-rating">
+        <input type="search" placeholder="Enter your rating" class="search-input-rating">
         
       
         
       </div>
-      
     </div>
 
+    <div class="search-section">
+      <div class="input-wrapper">
+        <span class="material-symbols-rounded">T</span>
+        <input type="search" placeholder="Enter '1' for database, '2' for wishlist" class="search-input-type">
+        
+      
+        
+      </div>
+    </div>
+    
     <!-- No results message -->
     <div class="no-results">
       
@@ -59,7 +70,8 @@
     <div class="weather-section">
       <div class="current-weather">
         
-        <h2 class="title"><u><a href="list.html">View list</a></u><span></span></h2>
+        <h2 class="title"><u><button><a href="list.html">View DataBase</a></button></u><span></span></h2>
+        <h2 class="title"><u><button><a href="watchlist.html">View WatchList</a></button></u><span></span></h2>
         
         
         
@@ -69,6 +81,7 @@
       
     </div>
   </div>
+  
   
   <script type="module" src="script.js"></script>
 </body>

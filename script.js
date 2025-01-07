@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-const firebaseConfig = {
+var firebaseConfig = {
   apiKey: "AIzaSyDqRsgbiUdtmvkA8l0xg1YHo234rZGjctY",
   authDomain: "movie-database-80fc8.firebaseapp.com",
   databaseURL: "https://movie-database-80fc8-default-rtdb.firebaseio.com",
@@ -24,7 +24,7 @@ const db = getDatabase();
 
 const searchInput = document.querySelector(".search-input");
 const rating = document.querySelector(".search-input-rating");
-
+const type = document.querySelector(".search-input-type");
 const API_KEY = "60e1e8e7"; // API key
 
 // Weather codes for mapping to custom icons
@@ -34,7 +34,7 @@ const API_KEY = "60e1e8e7"; // API key
 
 const currentWeatherDiv = document.querySelector(".current-weather");
 // Fetch and display weather details
-const getMovieDetails = async (API_URL, ratingValue) => {
+const getMovieDetails = async (API_URL, ratingValue, typeValue) => {
   window.innerWidth <= 768 && searchInput.blur();
   document.body.classList.remove("show-no-results");
 
@@ -63,7 +63,8 @@ const getMovieDetails = async (API_URL, ratingValue) => {
       Director: mdirector,
       Released: mrelease,
       IMDB : mimdb,
-      Rating: parseInt(ratingValue)
+      Rating: parseInt(ratingValue),
+      Wish: parseInt(typeValue)
       
   })
   .then(()=>{
@@ -83,9 +84,11 @@ const getMovieDetails = async (API_URL, ratingValue) => {
 }
 
 // Set up the movie request
-const setupWeatherRequest = (movieName, ratingValue) => {
-  const doubt = movieName[0]+movieName[1];
-  console.log(doubt);
+const setupWeatherRequest = (movieName, ratingValue, typeValue) => {
+  console.log(typeValue);
+  // you need to resume from here. completed getting type value till here. now figure out how to call different database.
+  const doubt = movieName[0]+movieName[1]; // if doubt is "tt" then buddy it is IMDB token.
+  
   var API_URL;
   if(doubt == "tt"){
     //
@@ -96,13 +99,17 @@ const setupWeatherRequest = (movieName, ratingValue) => {
   }
   //http://www.omdbapi.com/?i=tt6033368
   console.log(API_URL);
-  getMovieDetails(API_URL, ratingValue);
+  getMovieDetails(API_URL, ratingValue, typeValue);
 }
 
-// Handle user input in the search box
+
 var check1 = false;
 var check2 = false;
+var check3 = false;
 var movieName;
+var ratingValue;
+
+// Handle user input in the search box
 searchInput.addEventListener("keyup", (e) => {
   movieName = searchInput.value.trim();
 
@@ -114,18 +121,36 @@ searchInput.addEventListener("keyup", (e) => {
 });
 
 rating.addEventListener("keyup", (e) => {
-  const ratingValue = rating.value.trim();
+  ratingValue = rating.value.trim();
 
   
   if (e.key == "Enter" && ratingValue) {
     console.log("check2");
     check2 = true;
 
+    
+  }
+});
+
+type.addEventListener("keyup", (e) => {
+  const typeValue = type.value.trim();
+  if(e.key == "Enter" && typeValue){
+    console.log("check3");
+    check3=true;
+
+
     if( check1 && check2 ){
-      console.log("herer in check1 check2");
-      setupWeatherRequest(movieName, ratingValue);
+      //console.log("movie name: ");
+      //console.log(searchInput.value.trim());
+      //console.log(movieName);
+      //console.log("herer in check1 check2");
+      //console.log(rating.value.trim());
+      //console.log(typeValue);
+      setupWeatherRequest(movieName, ratingValue, typeValue);
     }
   }
+
+
 });
 
 
