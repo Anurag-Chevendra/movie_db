@@ -176,7 +176,7 @@ body.show-no-results .weather-section {
 }
 
 .weather-section .current-weather {
-  display: flex;
+  display: block ruby;
   padding: 20px 0 50px;
   flex-direction: column;
   align-items: center;
