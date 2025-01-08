@@ -37,7 +37,7 @@ const currentWeatherDiv = document.querySelector(".current-weather");
 const getMovieDetails = async (API_URL, ratingValue, typeValue) => {
   window.innerWidth <= 768 && searchInput.blur();
   document.body.classList.remove("show-no-results");
-
+  console.log("we are here");
   try {
     // Fetch weather data from the API and parse the response as JSON
     const response = await fetch(API_URL);
@@ -48,10 +48,11 @@ const getMovieDetails = async (API_URL, ratingValue, typeValue) => {
     const mrelease = data.Released;
     const mimdb = data.imdbID;
     console.log(data);
-    //console.log(data)
+    
     console.log(mtitle);
     console.log(mruntime);
     console.log(mdirector);
+    console.log("in herererere");
     const tp = "by " + mdirector + ", running :" + mruntime;
     currentWeatherDiv.querySelector(".title").innerHTML = `${mtitle}`;
     currentWeatherDiv.querySelector(".description").innerHTML = `${tp}`;
