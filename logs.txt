@@ -2,8 +2,8 @@
 [+]added a new feature, watchlist. Wanted to implement this since a very long time. finally got to it. It's not yet complete to be honest.
 [+]I had fucked something up, the solution was right there but since I only have 0.13 braincell, it took me some time to figure it out.
 [!]Features to be added: 
-  1)to be able to delete from watchlist. even crazier if database detects there's a entry which is already 
-    present in the watchlist and deletes the entry from watchlist all by itself. 
+  1)to be able to delete from watchlist. even crazier if the database detects there's a entry which is already present in the watchlist 
+    and deletes the entry from watchlist all by itself. 
   2)Add a sign-in user interface. Not too crazy. People with 2 brain-cells should be able to crack it since I am     [Remove this from log once done]
     planning to hard-code it.
   3)Add Genre tag to all entries. 
