@@ -13,7 +13,7 @@ This jsut displays all the movies, arranged according to rating.
 ## Few words
 Yes i am aware, all my api keys are visible. 
 
-yes it looks like shit but i ain't no expert there. 
+yes it looks like shit (arguable honestly) but i ain't no expert there. 
 
 it gets the job done. 
 
