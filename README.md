@@ -4,7 +4,7 @@
 https://anurag-chevendra.github.io/movie_db/
 
 ## Demo
-This is what the webpage looks like. You enter the movie title here, hit enter, rate it, and then hit enter {in console, you should see check1, check2}
+This is what the webpage looks like. You enter the movie title here, hit enter, rate it, and then hit enter {in console, you should see check1, check2, check3}
 ![movie-db](https://github.com/user-attachments/assets/54d0302c-e53a-4263-9682-3ce8c43f9ff8)
 
 This jsut displays all the movies, arranged according to rating.
