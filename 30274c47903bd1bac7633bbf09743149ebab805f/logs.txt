@@ -12,4 +12,4 @@
 [+]Made the buttons look pretty.
 -------------------------------------------------------------------------------------------------------------------------
 14-01-2025 : 
-[+]Added login page and passwd check. Finally.
+[+]Added login page and passwd check. Finally. it's a very basic Password-protection-for-static-pages
