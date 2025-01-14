@@ -7,6 +7,9 @@
   2)Add a sign-in user interface. Not too crazy. People with 2 brain-cells should be able to crack it since I am     [Remove this from log once done]
     planning to hard-code it.
   3)Add Genre tag to all entries.
------------------------------------------------------------------------------------------------------------------------------------------------------             
+-------------------------------------------------------------------------------------------------------------------------          
 12-01-2025 :
 [+]Made the buttons look pretty.
+-------------------------------------------------------------------------------------------------------------------------
+14-01-2025 : 
+[+]Added login page and passwd check. Finally.
