@@ -1,20 +1,34 @@
-# movie_db
- just a movie db for personal tracking
- 
-https://anurag-chevendra.github.io/movie_db/
+# Password protection for static pages
 
-## Demo
-This is what the webpage looks like. You enter the movie title here, hit enter, rate it, and then hit enter {in console, you should see check1, check2, check3}
-![movie-db](https://github.com/user-attachments/assets/54d0302c-e53a-4263-9682-3ce8c43f9ff8)
+This simple HTML document helps you protecting static pages or whole websites with no server configuration required: you can now use Dropbox, Amazon S3 or any generic hosting service to host a private, password protected site.
 
-This jsut displays all the movies, arranged according to rating.
-![movie-list](https://github.com/user-attachments/assets/56abe2fc-5ec4-427e-b2d0-361a85eed3f6)
+This small project is a byproduct of my [Tumbless blogging platform](https://github.com/matteobrusa/Tumbless) project.
 
-## Few words
-Yes i am aware, all my api keys are visible. 
+## Setup
 
-yes it looks like shit (arguable honestly) but i ain't no expert there. 
+0. Upload the `index.html` document and the background image to your static hosting service.
+0. Load it up in your browser, enter the password of your choice
+0. It will show "wrong password", never mind. Copy the section of the URL after the # sign.
+0. Create a folder with that name next to the `index.html` file
+0. Upload the content that you want to protect inside the folder
 
-it gets the job done. 
+The final structure will be:
 
+```
+- index.html
+- background.jpg
+- this-is-a-hash      <-- the SHA1 hash of your password               
+  \ - index.html      <-- your original index document
+```
 
+### Is this secure?
+Pretty much secure, please consider that:
+
+0. If your hosting service offers directory listing, a visitor can bypass the protection.
+1. there's no protection against brute force attack. Pick a very long and hard to guess password. 
+2. The password's hash is part of the URI. __Enforce HTTPS__ to avoid man in the middle attacks.
+
+## Troubleshooting
+
+0. Test the [demo page](http://matteobrusa.github.io/Password-protection-for-static-pages/) in your browser with password 'secret'
+0. Deploy the whole repo on your hosting, and test again.
