@@ -16,5 +16,4 @@ Yes i am aware, all my api keys are visible.
 yes it looks like shit (arguable honestly) but i ain't no expert there. 
 
 it gets the job done. 
-
-
+i have not added the login page screenshot.
