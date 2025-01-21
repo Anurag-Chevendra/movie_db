@@ -9,10 +9,11 @@ movie-db![p1](https://github.com/user-attachments/assets/d6db6555-9987-405f-939d
 
 
 This jsut displays all the movies, arranged according to rating.
-![movie-list](https://github.com/user-attachments/assets/56abe2fc-5ec4-427e-b2d0-361a85eed3f6)
+ ![p2](https://github.com/user-attachments/assets/757d2b4c-9367-4b08-9895-051b5329023e)
 
 ## Few words
-Yes i am aware, all my api keys are visible. 
+Yes i am aware, all my api keys are visible.
+
 
 yes it looks like shit (arguable honestly) but i ain't no expert there. 
 
