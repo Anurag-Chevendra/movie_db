@@ -15,3 +15,5 @@
 [+]Added login page and passwd check. Finally. it's a very basic Password-protection-for-static-pages
 -------------------------------------------------------------------------------------------------------------------------
 [+]changed readme with updated pictures.
+-------------------------------------------------------------------------------------------------------------------------
+[+]added alert stating "open on xyz for better experience"
