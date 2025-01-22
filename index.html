@@ -12,8 +12,9 @@
 
 body {
 
-	background-image: url('grunge_patterns.jpg');
-	background-attachment: fixed;
+	
+	
+	background-size: cover;
 	color: #333;
 }
 
@@ -64,8 +65,26 @@ div.vertical {
 }
 
 </style>
-
-<body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    var images = ["grunge_patterns.jpg", "grunge_patterns2.jpg"];
+    $(function () {
+        var i = 0;
+		console.log(images[i]);
+        $("#dvImage").css("background-image", "url(" + images[i] + ")");
+        setInterval(function () {
+            i++;
+            if (i == images.length) {
+                i = 0;
+            }
+            $("#dvImage").fadeOut("slow", function () {
+                $(this).css("background-image", "url(" + images[i] + ")");
+                $(this).fadeIn("slow");
+            });
+        }, 7000);
+    });
+</script>
+<body id="dvImage">
 
 	<div id="loginbox" class="lightbox" >
 		<div class="horizontal">
@@ -78,12 +97,12 @@ div.vertical {
 			</div>
 		</div>
 	</div>
-
 	<script>alert("open on desktop/ipad for a better experience");</script>
+
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 
-
+	<h1> currently watching : Horimiya </h1>
 	 <script type="text/javascript" src="https://rawcdn.githack.com/chrisveness/crypto/7067ee62f18c76dd4a9d372a00e647205460b62b/sha1.js"></script>
 
 	<script type="text/javascript">
