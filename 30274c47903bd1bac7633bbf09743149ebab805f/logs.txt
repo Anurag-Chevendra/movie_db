@@ -19,3 +19,4 @@
 -------------------------------------------------------------------------------------------------------------------------
 22-01-2025 :
 [+]added alert stating "open on xyz for better experience"
+[+]added dynamic bg change feature and a "Currently watching" h1
