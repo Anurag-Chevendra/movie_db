@@ -14,6 +14,8 @@
 14-01-2025 : 
 [+]Added login page and passwd check. Finally. it's a very basic Password-protection-for-static-pages
 -------------------------------------------------------------------------------------------------------------------------
+20-01-2025 :
 [+]changed readme with updated pictures.
 -------------------------------------------------------------------------------------------------------------------------
+22-01-2025 :
 [+]added alert stating "open on xyz for better experience"
