@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>login</title>
 
@@ -11,9 +10,8 @@
 <style>
 
 body {
-
-	
-	
+	background-image: url("wallpaper.png");
+	background-repeat: no-repeat;
 	background-size: cover;
 	color: #333;
 }
@@ -66,24 +64,6 @@ div.vertical {
 
 </style>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript">
-    var images = ["grunge_patterns.jpg", "grunge_patterns2.jpg"];
-    $(function () {
-        var i = 0;
-		console.log(images[i]);
-        $("#dvImage").css("background-image", "url(" + images[i] + ")");
-        setInterval(function () {
-            i++;
-            if (i == images.length) {
-                i = 0;
-            }
-            $("#dvImage").fadeOut("slow", function () {
-                $(this).css("background-image", "url(" + images[i] + ")");
-                $(this).fadeIn("slow");
-            });
-        }, 7000);
-    });
-</script>
 <body id="dvImage">
 
 	<div id="loginbox" class="lightbox" >
@@ -101,8 +81,6 @@ div.vertical {
 
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-
-	<h1> currently watching : The King's Speech </h1>
 	 <script type="text/javascript" src="https://rawcdn.githack.com/chrisveness/crypto/7067ee62f18c76dd4a9d372a00e647205460b62b/sha1.js"></script>
 
 	<script type="text/javascript">
